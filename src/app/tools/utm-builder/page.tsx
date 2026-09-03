@@ -114,8 +114,11 @@ export default function UTMBuilderPage() {
           {/* Inputs */}
           <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm space-y-5">
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                Website URL <span className="text-rose-500">*</span>
+              <label className="flex items-center justify-between text-xs font-bold text-slate-700 mb-2 min-h-[20px]">
+                <span className="whitespace-nowrap">
+                  Website URL <span className="text-rose-500 font-bold">*</span>
+                </span>
+                <span className="text-[11px] text-slate-400 font-normal">Destination Page</span>
               </label>
               <input
                 type="url"
@@ -129,8 +132,13 @@ export default function UTMBuilderPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Campaign Source (utm_source) <span className="text-rose-500">*</span>
+                <label className="flex items-center justify-between text-xs font-bold text-slate-700 mb-2 min-h-[20px]">
+                  <span className="whitespace-nowrap">
+                    Campaign Source <span className="text-rose-500 font-bold">*</span>
+                  </span>
+                  <span className="font-mono text-[10px] text-slate-400 font-normal shrink-0 ml-2">
+                    utm_source
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -142,8 +150,11 @@ export default function UTMBuilderPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Campaign Medium (utm_medium)
+                <label className="flex items-center justify-between text-xs font-bold text-slate-700 mb-2 min-h-[20px]">
+                  <span className="whitespace-nowrap">Campaign Medium</span>
+                  <span className="font-mono text-[10px] text-slate-400 font-normal shrink-0 ml-2">
+                    utm_medium
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -157,8 +168,11 @@ export default function UTMBuilderPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Campaign Name (utm_campaign)
+                <label className="flex items-center justify-between text-xs font-bold text-slate-700 mb-2 min-h-[20px]">
+                  <span className="whitespace-nowrap">Campaign Name</span>
+                  <span className="font-mono text-[10px] text-slate-400 font-normal shrink-0 ml-2">
+                    utm_campaign
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -170,8 +184,11 @@ export default function UTMBuilderPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Campaign Term (utm_term)
+                <label className="flex items-center justify-between text-xs font-bold text-slate-700 mb-2 min-h-[20px]">
+                  <span className="whitespace-nowrap">Campaign Term</span>
+                  <span className="font-mono text-[10px] text-slate-400 font-normal shrink-0 ml-2">
+                    utm_term
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -184,8 +201,11 @@ export default function UTMBuilderPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                Campaign Content (utm_content)
+              <label className="flex items-center justify-between text-xs font-bold text-slate-700 mb-2 min-h-[20px]">
+                <span className="whitespace-nowrap">Campaign Content</span>
+                <span className="font-mono text-[10px] text-slate-400 font-normal shrink-0 ml-2">
+                  utm_content
+                </span>
               </label>
               <input
                 type="text"
