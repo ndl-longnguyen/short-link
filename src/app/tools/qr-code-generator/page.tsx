@@ -32,7 +32,16 @@ export default function QRCodeGeneratorPage() {
         errorCorrectionLevel: errorCorrection,
       },
       (error) => {
-        if (error) console.error('QR generation error:', error)
+        if (error) {
+          console.error('QR generation error:', error)
+          return
+        }
+        if (canvasRef.current) {
+          canvasRef.current.style.width = '100%'
+          canvasRef.current.style.height = '100%'
+          canvasRef.current.style.aspectRatio = '1 / 1'
+          canvasRef.current.style.objectFit = 'contain'
+        }
       }
     )
   }, [text, fgColor, bgColor, errorCorrection])
@@ -196,8 +205,12 @@ export default function QRCodeGeneratorPage() {
 
           {/* Preview & Download */}
           <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm flex flex-col items-center justify-center text-center">
-            <div className="p-5 rounded-2xl border border-slate-100 shadow-inner bg-slate-50/50 mb-6 max-w-[280px] w-full flex items-center justify-center">
-              <canvas ref={canvasRef} className="rounded-lg max-w-full h-auto shadow-xs" />
+            <div className="w-64 h-64 sm:w-72 sm:h-72 aspect-square p-4 rounded-2xl border border-slate-100 shadow-inner bg-slate-50/70 mb-6 flex items-center justify-center mx-auto overflow-hidden">
+              <canvas
+                ref={canvasRef}
+                className="w-full h-full aspect-square object-contain rounded-xl shadow-xs block"
+                style={{ aspectRatio: '1 / 1', maxWidth: '100%', maxHeight: '100%' }}
+              />
             </div>
 
             <div className="w-full space-y-3">

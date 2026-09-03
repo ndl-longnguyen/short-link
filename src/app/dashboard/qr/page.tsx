@@ -129,10 +129,10 @@ export default function DashboardQRCodesPage() {
                     <img
                       src={link.qrDataUrl}
                       alt={`QR for /${link.slug}`}
-                      className="w-36 h-36 rounded-lg"
+                      className="w-36 h-36 aspect-square object-contain rounded-lg"
                     />
                   ) : (
-                    <div className="w-36 h-36 flex items-center justify-center text-slate-300">
+                    <div className="w-36 h-36 aspect-square flex items-center justify-center text-slate-300">
                       Generating...
                     </div>
                   )}

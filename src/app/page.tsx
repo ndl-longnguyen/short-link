@@ -229,7 +229,7 @@ export default function HomePage() {
                       <img
                         src={qrDataUrl}
                         alt="Short link QR"
-                        className="w-24 h-24 rounded-xl border border-indigo-200 bg-white p-1"
+                        className="w-24 h-24 aspect-square object-contain rounded-xl border border-indigo-200 bg-white p-1"
                       />
                       <div className="space-y-1 text-center sm:text-left">
                         <p className="text-xs font-semibold text-slate-800">

@@ -283,7 +283,7 @@ export default function StandaloneURLShortenerPage() {
                   <img
                     src={qrDataUrl}
                     alt="Short Link QR Code"
-                    className="w-32 h-32 rounded-xl border border-slate-100 shadow-inner"
+                    className="w-32 h-32 aspect-square object-contain rounded-xl border border-slate-100 shadow-inner"
                   />
                   <div className="space-y-2 text-center sm:text-left">
                     <h3 className="text-sm font-bold text-slate-900">Embedded QR Code</h3>
