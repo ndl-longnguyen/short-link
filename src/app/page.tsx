@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
 import {
   Link2,
   Copy,
@@ -79,12 +80,7 @@ export default function HomePage() {
       {/* Navigation Header */}
       <header className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 font-bold text-slate-900 text-lg">
-            <div className="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-white font-black text-sm shadow-sm">
-              <Link2 className="w-4 h-4" />
-            </div>
-            <span className="tracking-tight">ShortLink</span>
-          </Link>
+          <Logo size="sm" />
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
             <Link href="/tools" className="hover:text-slate-900 transition">Free Tools</Link>
@@ -424,7 +420,8 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="mt-auto border-t border-slate-200/80 bg-white py-10 px-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div className="flex items-center gap-2 font-bold text-slate-800">
+          <div className="flex items-center gap-2.5 font-bold text-slate-800">
+            <Logo size="xs" showText={false} />
             <span>ShortLink Platform</span>
             <span>&bull;</span>
             <span className="font-normal text-slate-400">Production-Ready Vercel + Supabase</span>

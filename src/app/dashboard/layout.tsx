@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import Logo from '@/components/ui/Logo'
 import {
   LayoutDashboard,
   Link2,
@@ -58,12 +59,7 @@ export default function DashboardLayout({
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex lg:flex-col lg:w-64 bg-white border-r border-slate-200/80 p-5 shrink-0 justify-between">
         <div className="space-y-6">
-          <Link href="/" className="flex items-center gap-2.5 px-2">
-            <div className="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-white font-black text-sm shadow-sm">
-              <Link2 className="w-4 h-4" />
-            </div>
-            <span className="font-bold text-slate-900 text-base tracking-tight">ShortLink</span>
-          </Link>
+          <Logo size="sm" className="px-2" />
 
           <div className="pt-2">
             <Link
@@ -125,12 +121,7 @@ export default function DashboardLayout({
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
         <header className="lg:hidden bg-white border-b border-slate-200 px-4 h-14 flex items-center justify-between sticky top-0 z-30">
-          <Link href="/" className="flex items-center gap-2 font-bold text-slate-900 text-sm">
-            <div className="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center text-white text-xs">
-              <Link2 className="w-4 h-4" />
-            </div>
-            <span>ShortLink</span>
-          </Link>
+          <Logo size="xs" />
 
           <button
             type="button"

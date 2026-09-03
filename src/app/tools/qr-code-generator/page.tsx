@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
 import { QrCode, Download, Copy, Check, ArrowLeft, RefreshCw } from 'lucide-react'
 import QRCode from 'qrcode'
 
@@ -87,12 +88,9 @@ export default function QRCodeGeneratorPage() {
             >
               <ArrowLeft className="w-4 h-4" />
             </Link>
-            <div className="flex items-center gap-2 font-bold text-slate-900 text-lg">
-              <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-black text-sm">
-                Q
-              </div>
-              <span>QR Code Studio</span>
-            </div>
+            <Logo size="xs" />
+            <span className="text-slate-300">/</span>
+            <span className="font-bold text-slate-900 text-sm">QR Code Studio</span>
           </div>
           <Link
             href="/"

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
 import { Target, Copy, Check, ArrowLeft, ExternalLink, Sparkles, ArrowRight, Loader2 } from 'lucide-react'
 
 export default function UTMBuilderPage() {
@@ -89,12 +90,9 @@ export default function UTMBuilderPage() {
             >
               <ArrowLeft className="w-4 h-4" />
             </Link>
-            <div className="flex items-center gap-2 font-bold text-slate-900 text-lg">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-black text-sm">
-                U
-              </div>
-              <span>UTM Campaign Builder</span>
-            </div>
+            <Logo size="xs" />
+            <span className="text-slate-300">/</span>
+            <span className="font-bold text-slate-900 text-sm">UTM Builder</span>
           </div>
           <Link
             href="/"

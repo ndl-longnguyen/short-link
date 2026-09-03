@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
 import { AlertCircle, Clock, Ban, HelpCircle, ArrowRight, ShieldAlert } from 'lucide-react'
 
 interface ErrorPageProps {
@@ -56,6 +57,9 @@ export default async function ErrorPage({ searchParams }: ErrorPageProps) {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-8 text-center animate-in fade-in zoom-in-95 duration-200">
+        <div className="flex justify-center mb-5">
+          <Logo size="sm" />
+        </div>
         <div className="flex justify-center mb-5">
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 shadow-inner">
             {icon}

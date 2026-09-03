@@ -2,6 +2,7 @@
 
 import { useState, useTransition, use } from 'react'
 import { Lock, ArrowRight, ShieldCheck, Loader2 } from 'lucide-react'
+import Logo from '@/components/ui/Logo'
 
 interface VerifyPasswordPageProps {
   searchParams: Promise<{
@@ -50,9 +51,12 @@ export default function VerifyPasswordPage({ searchParams }: VerifyPasswordPageP
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100/70 flex flex-col items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-200/80 p-8">
+        <div className="flex justify-center mb-5">
+          <Logo size="sm" />
+        </div>
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-inner">
-            <Lock className="w-8 h-8" />
+          <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-inner">
+            <Lock className="w-7 h-7" />
           </div>
         </div>
 

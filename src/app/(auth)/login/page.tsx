@@ -4,7 +4,8 @@ import { useState, useTransition, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import { Link2, ArrowRight, Loader2, AlertCircle } from 'lucide-react'
+import { ArrowRight, Loader2, AlertCircle } from 'lucide-react'
+import Logo from '@/components/ui/Logo'
 
 function LoginForm() {
   const router = useRouter()
@@ -65,12 +66,7 @@ function LoginForm() {
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center items-center p-4">
       <div className="max-w-md w-full bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 p-8 sm:p-10 animate-in fade-in zoom-in-95">
         <div className="flex justify-center mb-6">
-          <Link href="/" className="flex items-center gap-2 font-bold text-slate-900 text-lg">
-            <div className="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center text-white font-black text-sm shadow-sm">
-              <Link2 className="w-5 h-5" />
-            </div>
-            <span className="tracking-tight">ShortLink</span>
-          </Link>
+          <Logo size="md" />
         </div>
 
         <div className="text-center mb-6">

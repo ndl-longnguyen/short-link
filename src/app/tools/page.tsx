@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Link2, QrCode, Target, Globe, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react'
+import Logo from '@/components/ui/Logo'
 
 const tools = [
   {
@@ -62,12 +63,7 @@ export default function ToolsDirectoryPage() {
       {/* Top Header */}
       <header className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-slate-900 text-lg">
-            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-black text-sm">
-              S
-            </div>
-            <span>ShortLink</span>
-          </Link>
+          <Logo size="sm" />
           <div className="flex items-center gap-3">
             <Link
               href="/login"

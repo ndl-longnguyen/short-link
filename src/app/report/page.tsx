@@ -2,6 +2,7 @@
 
 import { useState, useTransition, use } from 'react'
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
 import { ShieldAlert, CheckCircle2, ArrowLeft, Loader2, AlertCircle } from 'lucide-react'
 
 interface ReportPageProps {
@@ -57,13 +58,16 @@ export default function ReportPage({ searchParams }: ReportPageProps) {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
       <div className="max-w-lg w-full bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-8 sm:p-10">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-900 transition mb-6"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          Back to Homepage
-        </Link>
+        <div className="flex items-center justify-between mb-6">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-900 transition"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            Back to Homepage
+          </Link>
+          <Logo size="xs" />
+        </div>
 
         {submitted ? (
           <div className="text-center py-6 animate-in fade-in zoom-in-95">

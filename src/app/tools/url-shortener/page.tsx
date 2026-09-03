@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
 import { Link2, Copy, Check, ArrowLeft, Sparkles, Shield, Clock, MousePointer, Lock, Loader2, QrCode, Download } from 'lucide-react'
 import QRCode from 'qrcode'
 
@@ -83,12 +84,9 @@ export default function StandaloneURLShortenerPage() {
             >
               <ArrowLeft className="w-4 h-4" />
             </Link>
-            <div className="flex items-center gap-2 font-bold text-slate-900 text-lg">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm">
-                S
-              </div>
-              <span>URL Shortener Studio</span>
-            </div>
+            <Logo size="xs" />
+            <span className="text-slate-300">/</span>
+            <span className="font-bold text-slate-900 text-sm">URL Shortener</span>
           </div>
           <Link
             href="/login"
