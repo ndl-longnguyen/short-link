@@ -96,6 +96,12 @@ export const metadata: Metadata = {
       { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  verification: {
+    google: '2n_hKWDM5r9dlRixMDRAsSCW6hbadPKFb5ccKFfG3i0',
+  },
+  other: {
+    'google-adsense-account': 'ca-pub-9166964727480227',
+  },
 }
 
 export default function RootLayout({
