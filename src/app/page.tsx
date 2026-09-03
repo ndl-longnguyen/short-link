@@ -90,10 +90,12 @@ export default function HomePage() {
     <div className="min-h-screen bg-slate-50 flex flex-col selection:bg-indigo-500 selection:text-white">
       {/* Navigation Header */}
       <header className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Logo size="sm" />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4 flex-nowrap">
+          <div className="shrink-0">
+            <Logo size="sm" />
+          </div>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+          <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-600 whitespace-nowrap">
             <Link href="/tools" className="hover:text-slate-900 transition">{t.nav.freeTools}</Link>
             <Link href="/tools/qr-code-generator" className="hover:text-slate-900 transition">{t.nav.qrStudio}</Link>
             <Link href="/tools/utm-builder" className="hover:text-slate-900 transition">{t.nav.utmBuilder}</Link>
