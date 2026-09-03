@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { getSiteUrl } from '@/lib/utils'
+import JsonLd from '@/components/seo/JsonLd'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -16,40 +17,75 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'ShortLink | Enterprise Link Management & URL Shortener',
+    default: 'ShortLink | URL Shortener & Dynamic QR Studio | Rút Gọn Link Miễn Phí',
     template: '%s | ShortLink',
   },
   description:
-    'Blazing-fast URL shortener, dynamic QR code studio, and privacy-safe link analytics built with Next.js and Supabase.',
+    'Blazing-fast URL shortener, dynamic QR code generator, and privacy-safe link analytics. Nền tảng rút gọn liên kết siêu tốc, tạo mã QR động và đo lường click miễn phí.',
   keywords: [
+    // International Keywords
     'URL Shortener',
+    'Free URL Shortener',
     'Link Management',
+    'Custom Short Link',
     'Custom Alias',
-    'QR Code Generator',
-    'UTM Builder',
+    'Dynamic QR Code Generator',
+    'UTM Campaign Builder',
     'Link Analytics',
-    'Vercel Next.js',
+    'Password Protected Link',
+    'Vercel Next.js URL Shortener',
+    // Vietnam Targeted Keywords
+    'Rút gọn link',
+    'Rút gọn link miễn phí',
+    'Rút gọn liên kết',
+    'Tạo link rút gọn',
+    'Tạo mã QR',
+    'Tạo mã QR động',
+    'Rút gọn link có mật khẩu',
+    'Đo lường click liên kết',
+    'Công cụ gắn link UTM',
   ],
   authors: [{ name: 'ShortLink Platform' }],
   creator: 'ShortLink',
+  publisher: 'ShortLink',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/',
+      'vi-VN': '/',
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    alternateLocale: ['vi_VN'],
     url: getSiteUrl(),
-    title: 'ShortLink | Enterprise Link Management & URL Shortener',
+    title: 'ShortLink | URL Shortener & Dynamic QR Studio | Rút Gọn Link',
     description:
-      'Blazing-fast URL shortener, dynamic QR code studio, and privacy-safe link analytics.',
+      'Fast URL shortener, dynamic QR codes, and privacy-safe link analytics. Rút gọn link siêu tốc và tạo mã QR miễn phí.',
     siteName: 'ShortLink',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShortLink | Enterprise Link Management & URL Shortener',
+    title: 'ShortLink | URL Shortener & Dynamic QR Studio',
     description:
-      'Blazing-fast URL shortener, dynamic QR code studio, and privacy-safe link analytics.',
+      'Fast URL shortener, dynamic QR codes, and privacy-safe link analytics.',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: [
@@ -73,6 +109,7 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900">
+        <JsonLd type="website" />
         {children}
       </body>
     </html>

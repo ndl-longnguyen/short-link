@@ -3,6 +3,7 @@
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
 import Logo from '@/components/ui/Logo'
+import FaqSection from '@/components/landing/FaqSection'
 import {
   Link2,
   Copy,
@@ -86,6 +87,7 @@ export default function HomePage() {
             <Link href="/tools" className="hover:text-slate-900 transition">Free Tools</Link>
             <Link href="/tools/qr-code-generator" className="hover:text-slate-900 transition">QR Studio</Link>
             <Link href="/tools/utm-builder" className="hover:text-slate-900 transition">UTM Builder</Link>
+            <Link href="#faq" className="hover:text-slate-900 transition">Hỏi & Đáp (FAQ)</Link>
             <Link href="/report" className="hover:text-slate-900 transition">Report Abuse</Link>
           </nav>
 
@@ -388,6 +390,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FaqSection />
 
       {/* CTA Section */}
       <section className="py-16 px-4">

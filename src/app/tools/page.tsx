@@ -53,8 +53,22 @@ const tools = [
 ]
 
 export const metadata = {
-  title: 'Free Link & Marketing Tools | ShortLink',
-  description: 'A suite of free online utilities for modern marketers: URL Shortener, QR Code Generator, and UTM Builder.',
+  title: 'Free Link & Marketing Tools | Bộ Công Cụ Rút Gọn Link & Mã QR',
+  description:
+    'Free online utilities for marketers and businesses: Fast URL Shortener, Dynamic QR Code Studio, and Google Analytics UTM Campaign Builder.',
+  keywords: [
+    'Marketing Tools',
+    'Free Link Tools',
+    'URL Shortener',
+    'QR Code Generator',
+    'UTM Builder',
+    'Công cụ marketing',
+    'Rút gọn link',
+    'Tạo mã QR',
+  ],
+  alternates: {
+    canonical: '/tools',
+  },
 }
 
 export default function ToolsDirectoryPage() {
