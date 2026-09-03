@@ -11,12 +11,22 @@ import { Database } from '@/types/database'
  * NEVER import or expose this in client components.
  */
 export function createAdminClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  const supabaseUrl =
+    process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    process.env.SUPABASE_URL ||
+    ''
+  const serviceRoleKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.SUPABASE_SECRET_KEY ||
+    ''
 
   if (!supabaseUrl || !serviceRoleKey) {
-    // Fallback to anon key in local development if service role key is not yet configured
-    const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
+    // Fallback to anon/publishable key in local development if service role key is not yet configured
+    const anonKey =
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      process.env.SUPABASE_PUBLISHABLE_KEY ||
+      ''
     return createClient<Database>(supabaseUrl, anonKey || 'placeholder-key', {
       auth: { persistSession: false },
     })
