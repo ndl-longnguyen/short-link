@@ -26,6 +26,10 @@ export const RESERVED_SLUGS = new Set([
   'verify-password',
   'error',
 
+  // Locales
+  'en',
+  'vi',
+
   // Tools & features
   'tools',
   'tool',

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Logo from '@/components/ui/Logo'
 import FaqSection from '@/components/landing/FaqSection'
 import NavbarAuth from '@/components/navigation/NavbarAuth'
+import { useTranslation } from '@/lib/i18n/context'
 import {
   Link2,
   Copy,
@@ -24,6 +25,7 @@ import {
 import QRCode from 'qrcode'
 
 export default function HomePage() {
+  const { t } = useTranslation()
   const [url, setUrl] = useState('')
   const [customSlug, setCustomSlug] = useState('')
   const [showAlias, setShowAlias] = useState(false)
@@ -92,14 +94,14 @@ export default function HomePage() {
           <Logo size="sm" />
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-            <Link href="/tools" className="hover:text-slate-900 transition">Free Tools</Link>
-            <Link href="/tools/qr-code-generator" className="hover:text-slate-900 transition">QR Studio</Link>
-            <Link href="/tools/utm-builder" className="hover:text-slate-900 transition">UTM Builder</Link>
-            <Link href="#faq" className="hover:text-slate-900 transition">Hỏi & Đáp (FAQ)</Link>
-            <Link href="/report" className="hover:text-slate-900 transition">Report Abuse</Link>
+            <Link href="/tools" className="hover:text-slate-900 transition">{t.nav.freeTools}</Link>
+            <Link href="/tools/qr-code-generator" className="hover:text-slate-900 transition">{t.nav.qrStudio}</Link>
+            <Link href="/tools/utm-builder" className="hover:text-slate-900 transition">{t.nav.utmBuilder}</Link>
+            <Link href="#faq" className="hover:text-slate-900 transition">{t.nav.faq}</Link>
+            <Link href="/report" className="hover:text-slate-900 transition">{t.nav.reportAbuse}</Link>
           </nav>
 
-          <NavbarAuth signupText="Dashboard Free" />
+          <NavbarAuth />
         </div>
       </header>
 
@@ -108,18 +110,18 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Production-Ready Next.js Link Infrastructure</span>
+            <span>{t.hero.badge}</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Shorten, track, and optimize <br className="hidden sm:block" />
+            {t.hero.titlePart1} <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600">
-              every link you share
+              {t.hero.titlePart2}
             </span>
           </h1>
 
           <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Blazing fast redirects, built-in dynamic QR codes, privacy-safe analytics, and bulletproof security — without the bloat.
+            {t.hero.subtitle}
           </p>
 
           {/* Shorten Box */}
@@ -132,7 +134,7 @@ export default function HomePage() {
                       type="url"
                       value={url}
                       onChange={e => setUrl(e.target.value)}
-                      placeholder="Paste your long URL here... https://example.com/..."
+                      placeholder={t.hero.inputPlaceholder}
                       required
                       disabled={isPending}
                       className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition"
@@ -146,11 +148,11 @@ export default function HomePage() {
                     {isPending ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        Shortening...
+                        {t.hero.shortening}
                       </>
                     ) : (
                       <>
-                        Shorten URL
+                        {t.hero.shortenBtn}
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
@@ -164,9 +166,9 @@ export default function HomePage() {
                     onClick={() => setShowAlias(!showAlias)}
                     className="text-slate-500 hover:text-indigo-600 font-medium transition cursor-pointer"
                   >
-                    {showAlias ? '- Hide Custom Alias' : '+ Add Custom Alias (optional)'}
+                    {showAlias ? t.hero.customAliasToggleHide : t.hero.customAliasToggleShow}
                   </button>
-                  <span className="text-slate-400">No sign up required for instant links</span>
+                  <span className="text-slate-400">{t.hero.noSignUpNotice}</span>
                 </div>
 
                 {showAlias && (
@@ -200,7 +202,7 @@ export default function HomePage() {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="truncate">
                       <span className="text-[11px] font-bold text-indigo-600 uppercase tracking-wider block mb-0.5">
-                        Your Ready-To-Use Short Link:
+                        {t.hero.successTitle}
                       </span>
                       <a
                         href={result.shortUrl}
@@ -218,7 +220,7 @@ export default function HomePage() {
                         className="py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition flex items-center gap-1.5 shadow-sm active:scale-[0.98] cursor-pointer"
                       >
                         {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                        {copied ? 'Copied!' : 'Copy Link'}
+                        {copied ? t.hero.copiedShortLink : t.hero.copyShortLink}
                       </button>
                     </div>
                   </div>
@@ -233,10 +235,10 @@ export default function HomePage() {
                       />
                       <div className="space-y-1 text-center sm:text-left">
                         <p className="text-xs font-semibold text-slate-800">
-                          Built-in Short Link QR Code
+                          {t.hero.qrTitle}
                         </p>
                         <p className="text-[11px] text-slate-500">
-                          Encodes your short link. You can safely print or share this anywhere.
+                          {t.hero.qrSubtitle}
                         </p>
                         <a
                           href={qrDataUrl}
@@ -244,16 +246,16 @@ export default function HomePage() {
                           className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-700 pt-1 cursor-pointer"
                         >
                           <Download className="w-3.5 h-3.5" />
-                          Download PNG
+                          {t.hero.downloadQr}
                         </a>
                       </div>
                     </div>
                   )}
 
                   <div className="pt-2 flex items-center justify-between text-xs text-indigo-700 border-t border-indigo-200/50">
-                    <span>Want to view analytics and edit this destination later?</span>
+                    <span>{t.hero.analyticsNotice}</span>
                     <Link href="/signup" className="font-bold underline hover:text-indigo-900">
-                      Create free account &rarr;
+                      {t.hero.createFreeAccount}
                     </Link>
                   </div>
                 </div>
@@ -267,11 +269,14 @@ export default function HomePage() {
       <section className="py-16 bg-white border-y border-slate-200/80 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold mb-3">
+              <span>{t.benefits.sectionBadge}</span>
+            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Engineered for Speed, Reliability, and Safety
+              {t.benefits.sectionTitle}
             </h2>
             <p className="mt-2 text-slate-600 text-sm">
-              Built from scratch with modern Vercel Serverless and Supabase PostgreSQL architecture.
+              {t.benefits.sectionSubtitle}
             </p>
           </div>
 
@@ -280,9 +285,9 @@ export default function HomePage() {
               <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
                 <Zap className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Instant Redirects</h3>
+              <h3 className="font-bold text-slate-900 text-base">{t.benefits.speedTitle}</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Zero client execution lag. Route handlers project only essential columns and process analytics asynchronously.
+                {t.benefits.speedDesc}
               </p>
             </div>
 
@@ -290,9 +295,9 @@ export default function HomePage() {
               <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600">
                 <QrCode className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Dynamic QR Codes</h3>
+              <h3 className="font-bold text-slate-900 text-base">{t.benefits.qrTitle}</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Every short link is automatically encoded into a scalable QR code. Change the destination anytime without reprinting.
+                {t.benefits.qrDesc}
               </p>
             </div>
 
@@ -300,9 +305,9 @@ export default function HomePage() {
               <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
                 <BarChart3 className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Privacy-Safe Analytics</h3>
+              <h3 className="font-bold text-slate-900 text-base">{t.benefits.analyticsTitle}</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Track click timelines, referrers, countries, and devices without tracking or permanently persisting personal IP addresses.
+                {t.benefits.analyticsDesc}
               </p>
             </div>
 
@@ -310,9 +315,9 @@ export default function HomePage() {
               <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600">
                 <Lock className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Password & Expiration</h3>
+              <h3 className="font-bold text-slate-900 text-base">{t.benefits.securityTitle}</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Protect sensitive links with salted PBKDF2 passwords, click thresholds, and exact expiration schedules.
+                {t.benefits.securityDesc}
               </p>
             </div>
           </div>
@@ -394,23 +399,23 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto rounded-3xl bg-slate-900 text-white p-8 sm:p-14 text-center space-y-6 relative overflow-hidden shadow-2xl">
           <div className="relative z-10 max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Ready to take control of your links?
+              {t.cta.title}
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Create your free account today to track performance, manage custom slugs, set passwords, and inspect real-time audience analytics.
+              {t.cta.subtitle}
             </p>
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/signup"
                 className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 transition shadow-lg shadow-white/10 active:scale-[0.98]"
               >
-                Create Free Account
+                {t.cta.buttonCreate}
               </Link>
               <Link
                 href="/login"
                 className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-slate-800 text-slate-200 font-bold text-sm hover:bg-slate-700 transition"
               >
-                Sign In
+                {t.cta.buttonSignIn}
               </Link>
             </div>
           </div>

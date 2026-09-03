@@ -1,0 +1,95 @@
+import { Dictionary } from '../types'
+
+export const enDictionary: Dictionary = {
+  common: {
+    loading: 'Loading...',
+    copied: 'Copied!',
+    copy: 'Copy',
+    download: 'Download',
+    save: 'Save',
+    cancel: 'Cancel',
+    delete: 'Delete',
+    edit: 'Edit',
+    back: 'Back',
+    view: 'View',
+    open: 'Open',
+    error: 'An error occurred',
+    success: 'Success',
+  },
+  nav: {
+    freeTools: 'Free Tools',
+    qrStudio: 'QR Studio',
+    utmBuilder: 'UTM Builder',
+    faq: 'FAQ',
+    reportAbuse: 'Report Abuse',
+    signIn: 'Sign In',
+    signUp: 'Get Started Free',
+    dashboard: 'Dashboard',
+    goToDashboard: 'Dashboard',
+    signOut: 'Sign Out',
+  },
+  hero: {
+    badge: 'Production-Ready Link Infrastructure',
+    titlePart1: 'Shorten, track, and optimize',
+    titlePart2: 'every link you share',
+    subtitle:
+      'Blazing fast redirects, built-in dynamic QR codes, privacy-safe analytics, and bulletproof security — without the bloat.',
+    inputPlaceholder: 'Paste a long link here (e.g. https://your-brand.com/special-deal)...',
+    shortenBtn: 'Shorten URL',
+    shortening: 'Shortening...',
+    customAliasToggleShow: '+ Add Custom Alias (optional)',
+    customAliasToggleHide: '- Hide Custom Alias',
+    noSignUpNotice: 'No sign up required for instant links',
+    successTitle: 'Your link is ready!',
+    copyShortLink: 'Copy Link',
+    copiedShortLink: 'Copied to Clipboard!',
+    openLink: 'Open Link',
+    qrTitle: 'Built-in Short Link QR Code',
+    qrSubtitle: 'Encodes your short link. You can safely print or share this anywhere.',
+    downloadQr: 'Download PNG',
+    analyticsNotice: 'Want to view analytics and edit this destination later?',
+    createFreeAccount: 'Create free account →',
+  },
+  benefits: {
+    sectionBadge: 'Why Choose ShortLink',
+    sectionTitle: 'Everything you need to scale your links',
+    sectionSubtitle:
+      'Engineered with modern web standards for maximum reliability, speed, and audience trust.',
+    speedTitle: 'Sub-millisecond Speed',
+    speedDesc:
+      'HTTP 307 redirects served from edge-optimized infrastructure for instant visitor transitions.',
+    qrTitle: 'Dynamic QR Code Studio',
+    qrDesc:
+      'High-resolution PNG and SVG QR codes ready for physical print materials, banners, and menus.',
+    securityTitle: 'Enterprise Security',
+    securityDesc:
+      'SSRF validation, private IP blocking, PBKDF2 passcode gates, and abuse filters out of the box.',
+    analyticsTitle: 'Privacy-Safe Analytics',
+    analyticsDesc:
+      'Real-time click insights, referrer sources, device breakdowns, and geographical maps without cookies.',
+  },
+  faqSection: {
+    badge: 'Frequently Asked Questions',
+    title: 'Everything You Need to Know',
+    subtitle:
+      'Common answers about URL shortening, QR codes, password protection, and privacy analytics.',
+  },
+  cta: {
+    title: 'Ready to take control of your links?',
+    subtitle:
+      'Create your free account today to track performance, manage custom slugs, set passwords, and inspect real-time audience analytics.',
+    buttonCreate: 'Create Free Account',
+    buttonSignIn: 'Sign In',
+  },
+  dashboardNav: {
+    dashboard: 'Dashboard',
+    links: 'Links',
+    analytics: 'Analytics',
+    qrCodes: 'QR Codes',
+    marketingTools: 'Marketing Tools',
+    settings: 'Settings',
+    signOut: 'Sign Out',
+    quickShorten: 'Quick Shorten',
+    userRole: 'Verified User',
+  },
+}

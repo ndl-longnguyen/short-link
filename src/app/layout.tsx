@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { getSiteUrl } from '@/lib/utils'
 import JsonLd from '@/components/seo/JsonLd'
+import { LanguageProvider } from '@/lib/i18n/context'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -56,8 +57,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
     languages: {
-      'en-US': '/',
-      'vi-VN': '/',
+      'en-US': '/?lang=en',
+      'vi-VN': '/?lang=vi',
+      'x-default': '/',
     },
   },
   openGraph: {
@@ -115,8 +117,10 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900">
-        <JsonLd type="website" />
-        {children}
+        <LanguageProvider>
+          <JsonLd type="website" />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

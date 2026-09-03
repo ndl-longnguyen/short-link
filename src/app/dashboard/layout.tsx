@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import Logo from '@/components/ui/Logo'
@@ -18,15 +18,8 @@ import {
   User,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
-
-const navigation = [
-  { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-  { name: 'Links', href: '/dashboard/links', icon: Link2 },
-  { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
-  { name: 'QR Codes', href: '/dashboard/qr', icon: QrCode },
-  { name: 'Marketing Tools', href: '/dashboard/tools', icon: Wrench },
-  { name: 'Settings', href: '/dashboard/settings', icon: Settings },
-]
+import { useTranslation } from '@/lib/i18n/context'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 
 export default function DashboardLayout({
   children,
@@ -35,8 +28,18 @@ export default function DashboardLayout({
 }) {
   const pathname = usePathname()
   const router = useRouter()
+  const { t } = useTranslation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [userEmail, setUserEmail] = useState<string | null>(null)
+
+  const navigation = useMemo(() => [
+    { name: t.dashboardNav.dashboard, href: '/dashboard', icon: LayoutDashboard },
+    { name: t.dashboardNav.links, href: '/dashboard/links', icon: Link2 },
+    { name: t.dashboardNav.analytics, href: '/dashboard/analytics', icon: BarChart3 },
+    { name: t.dashboardNav.qrCodes, href: '/dashboard/qr', icon: QrCode },
+    { name: t.dashboardNav.marketingTools, href: '/dashboard/tools', icon: Wrench },
+    { name: t.dashboardNav.settings, href: '/dashboard/settings', icon: Settings },
+  ], [t])
 
   useEffect(() => {
     const supabase = createClient()
@@ -67,7 +70,7 @@ export default function DashboardLayout({
               className="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm shadow-indigo-600/20 active:scale-[0.98] transition cursor-pointer"
             >
               <Plus className="w-4 h-4" />
-              Create Link
+              <span>{t.dashboardNav.quickShorten}</span>
             </Link>
           </div>
 
@@ -77,7 +80,7 @@ export default function DashboardLayout({
               const isActive = pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href))
               return (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition ${
                     isActive
@@ -93,8 +96,12 @@ export default function DashboardLayout({
           </nav>
         </div>
 
-        {/* User profile & Logout */}
-        <div className="pt-4 border-t border-slate-100 space-y-2">
+        {/* User profile, Language Switcher & Logout */}
+        <div className="pt-4 border-t border-slate-100 space-y-3">
+          <div className="flex justify-center">
+            <LanguageSwitcher variant="pill" className="w-full justify-center" />
+          </div>
+
           <div className="flex items-center gap-3 px-2 py-1">
             <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold">
               <User className="w-4 h-4" />
@@ -103,7 +110,7 @@ export default function DashboardLayout({
               <p className="text-xs font-semibold text-slate-900 truncate">
                 {userEmail || 'Account'}
               </p>
-              <span className="text-[10px] text-slate-400">Personal Plan</span>
+              <span className="text-[10px] text-slate-400">{t.dashboardNav.userRole}</span>
             </div>
           </div>
 
@@ -112,7 +119,7 @@ export default function DashboardLayout({
             className="w-full flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
           >
             <LogOut className="w-4 h-4" />
-            Sign Out
+            {t.dashboardNav.signOut}
           </button>
         </div>
       </aside>
@@ -123,13 +130,17 @@ export default function DashboardLayout({
         <header className="lg:hidden bg-white border-b border-slate-200 px-4 h-14 flex items-center justify-between sticky top-0 z-30">
           <Logo size="xs" />
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher variant="pill" />
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition"
+              aria-label="Toggle navigation"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </header>
 
         {/* Mobile Navigation Drawer */}
@@ -141,7 +152,7 @@ export default function DashboardLayout({
                 const isActive = pathname === item.href
                 return (
                   <Link
-                    key={item.name}
+                    key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
                     className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold ${
@@ -158,9 +169,9 @@ export default function DashboardLayout({
               <span className="text-xs text-slate-500 truncate">{userEmail}</span>
               <button
                 onClick={handleSignOut}
-                className="text-xs text-rose-600 font-semibold"
+                className="text-xs text-rose-600 font-semibold cursor-pointer"
               >
-                Sign Out
+                {t.dashboardNav.signOut}
               </button>
             </div>
           </div>

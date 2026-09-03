@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronDown, HelpCircle } from 'lucide-react'
+import { useTranslation } from '@/lib/i18n/context'
 
 interface FaqItem {
   question: string
@@ -62,6 +63,7 @@ const FAQS: FaqItem[] = [
 ]
 
 export default function FaqSection() {
+  const { t, isVi } = useTranslation()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const toggle = (idx: number) => {
@@ -73,19 +75,25 @@ export default function FaqSection() {
       <div className="text-center space-y-3 mb-12">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold shadow-xs">
           <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
-          <span>Hỏi & Đáp Phổ Biến &bull; Frequently Asked Questions</span>
+          <span>{t.faqSection.badge}</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Everything You Need to Know
+          {t.faqSection.title}
         </h2>
         <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
-          Common answers about URL shortening, QR codes, password protection, and privacy analytics for global and Vietnamese users.
+          {t.faqSection.subtitle}
         </p>
       </div>
 
       <div className="space-y-3.5">
         {FAQS.map((faq, idx) => {
           const isOpen = openIndex === idx
+          const mainQuestion = isVi ? faq.questionVi : faq.question
+          const subQuestion = isVi ? faq.question : faq.questionVi
+          const mainAnswer = isVi ? faq.answerVi : faq.answer
+          const subAnswer = isVi ? faq.answer : faq.answerVi
+          const subLabel = isVi ? 'English Translation:' : 'Bản dịch Tiếng Việt:'
+
           return (
             <div
               key={idx}
@@ -99,10 +107,10 @@ export default function FaqSection() {
               >
                 <div className="space-y-1">
                   <span className="text-sm sm:text-base font-bold text-slate-900 block">
-                    {faq.question}
+                    {mainQuestion}
                   </span>
                   <span className="text-xs text-indigo-600 font-medium block">
-                    {faq.questionVi}
+                    {subQuestion}
                   </span>
                 </div>
                 <div
@@ -116,10 +124,10 @@ export default function FaqSection() {
 
               {isOpen && (
                 <div className="px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 space-y-2.5 animate-in fade-in duration-200">
-                  <p>{faq.answer}</p>
+                  <p>{mainAnswer}</p>
                   <p className="p-3 bg-slate-50 rounded-xl text-slate-700 text-xs border border-slate-100">
-                    <strong className="text-slate-900 block mb-1">Tiếng Việt:</strong>
-                    {faq.answerVi}
+                    <strong className="text-slate-900 block mb-1">{subLabel}</strong>
+                    {subAnswer}
                   </p>
                 </div>
               )}
