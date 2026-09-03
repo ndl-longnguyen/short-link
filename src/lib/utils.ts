@@ -19,6 +19,9 @@ export function getSiteUrl(): string {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`
   }
+  if (process.env.NODE_ENV === 'production') {
+    return 'https://ndllink.vercel.app'
+  }
   return 'http://localhost:3000'
 }
 

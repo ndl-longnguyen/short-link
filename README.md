@@ -128,14 +128,18 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 1. Push your repository to GitHub or GitLab.
 2. In the [Vercel Dashboard](https://vercel.com), click **Add New Project** and import your repository.
 3. Configure the **Environment Variables** in Vercel:
-   - `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase Project URL.
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase Anon Key.
-   - `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase Service Role Key.
-   - `NEXT_PUBLIC_SITE_URL`: Your production URL (e.g. `https://your-domain.vercel.app`).
+   - `NEXT_PUBLIC_SUPABASE_URL`: `https://jgtesumifnovjxckbgge.supabase.co`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: `sb_publishable_IxUTmIbcQo7mDrGE410MbA_yaUfsw7u`
+   - `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase Service Role Key
+   - `NEXT_PUBLIC_SITE_URL`: `https://ndllink.vercel.app`
 4. Click **Deploy**.
 5. In Supabase Dashboard under **Authentication > URL Configuration**:
-   - Set **Site URL** to your Vercel production domain.
-   - Add `https://your-domain.vercel.app/**` to the **Redirect URLs**.
+   - Set **Site URL**: `https://ndllink.vercel.app`
+   - In **Redirect URLs**, add:
+     - `https://ndllink.vercel.app/**`
+     - `https://ndllink.vercel.app/auth/callback`
+     - `http://localhost:3000/**`
+     - `http://localhost:3001/**`
 
 ---
 

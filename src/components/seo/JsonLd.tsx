@@ -66,7 +66,7 @@ export default function JsonLd({
         name: 'What is a URL Shortener? / Rút gọn link là gì?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A URL shortener converts long, cumbersome web addresses into neat, memorable short links (e.g. shortlink.dev/sale). In Vietnamese: Rút gọn link là công cụ chuyển đổi các đường dẫn dài phức tạp thành các liên kết ngắn gọn, dễ nhớ và thẩm mỹ.',
+          text: 'A URL shortener converts long, cumbersome web addresses into neat, memorable short links (e.g. ndllink.vercel.app/sale). In Vietnamese: Rút gọn link là công cụ chuyển đổi các đường dẫn dài phức tạp thành các liên kết ngắn gọn, dễ nhớ và thẩm mỹ.',
         },
       },
       {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '@/components/ui/Logo'
 import FaqSection from '@/components/landing/FaqSection'
@@ -31,6 +31,13 @@ export default function HomePage() {
   const [copied, setCopied] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
+  const [domainPrefix, setDomainPrefix] = useState('ndllink.vercel.app/')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDomainPrefix(`${window.location.host}/`)
+    }
+  }, [])
 
   const handleShorten = (e: React.FormEvent) => {
     e.preventDefault()
@@ -177,8 +184,8 @@ export default function HomePage() {
                 {showAlias && (
                   <div className="pt-2 animate-in fade-in zoom-in-95">
                     <div className="flex items-center">
-                      <span className="px-3.5 py-2.5 rounded-l-xl border border-r-0 border-slate-200 bg-slate-50 text-slate-500 text-xs font-mono">
-                        shortlink.dev/
+                      <span className="px-3.5 py-2.5 rounded-l-xl border border-r-0 border-slate-200 bg-slate-50 text-slate-500 text-xs font-mono select-none">
+                        {domainPrefix}
                       </span>
                       <input
                         type="text"

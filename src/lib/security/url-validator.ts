@@ -108,6 +108,11 @@ export function validateDestinationUrl(
     return { isValid: false, error: 'Invalid URL hostname' }
   }
 
+  // Prevent infinite redirect loops (cannot shorten this platform itself)
+  if (hostname === 'ndllink.vercel.app' || hostname.endsWith('.ndllink.vercel.app')) {
+    return { isValid: false, error: 'Cannot create short links that redirect to this service itself' }
+  }
+
   // Check default blocked hosts
   if (DEFAULT_BLOCKED_HOSTS.has(hostname)) {
     return { isValid: false, error: 'Destination hostname is blocked' }

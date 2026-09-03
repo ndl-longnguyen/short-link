@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '@/components/ui/Logo'
 import { Link2, Copy, Check, ArrowLeft, Sparkles, Shield, Clock, MousePointer, Lock, Loader2, QrCode, Download } from 'lucide-react'
@@ -20,6 +20,13 @@ export default function StandaloneURLShortenerPage() {
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [isPending, startTransition] = useTransition()
+  const [domainPrefix, setDomainPrefix] = useState('ndllink.vercel.app/')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDomainPrefix(`${window.location.host}/`)
+    }
+  }, [])
 
   const handleShorten = (e: React.FormEvent) => {
     e.preventDefault()
@@ -131,8 +138,8 @@ export default function StandaloneURLShortenerPage() {
                 Custom Alias (Optional)
               </label>
               <div className="flex items-center">
-                <span className="inline-flex items-center px-3.5 py-2.5 rounded-l-xl border border-r-0 border-slate-200 bg-slate-50 text-slate-500 text-xs font-mono">
-                  shortlink.dev/
+                <span className="inline-flex items-center px-3.5 py-2.5 rounded-l-xl border border-r-0 border-slate-200 bg-slate-50 text-slate-500 text-xs font-mono select-none">
+                  {domainPrefix}
                 </span>
                 <input
                   type="text"

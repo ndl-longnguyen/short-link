@@ -7,7 +7,7 @@ import { QrCode, Download, Copy, Check, ArrowLeft, RefreshCw } from 'lucide-reac
 import QRCode from 'qrcode'
 
 export default function QRCodeGeneratorPage() {
-  const [text, setText] = useState('https://shortlink.dev')
+  const [text, setText] = useState('https://ndllink.vercel.app')
   const [fgColor, setFgColor] = useState('#0f172a')
   const [bgColor, setBgColor] = useState('#ffffff')
   const [errorCorrection, setErrorCorrection] = useState<'L' | 'M' | 'Q' | 'H'>('M')

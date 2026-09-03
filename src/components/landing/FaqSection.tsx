@@ -15,7 +15,7 @@ const FAQS: FaqItem[] = [
     question: 'What is a URL Shortener and why should I use it?',
     questionVi: 'Rút gọn link là gì và tại sao nên sử dụng?',
     answer:
-      'A URL shortener transforms long, clunky URLs with complex UTM tracking parameters into short, elegant links (e.g. shortlink.dev/sale). It makes your links cleaner for social sharing, print materials, SMS campaigns, and provides in-depth click analytics.',
+      'A URL shortener transforms long, clunky URLs with complex UTM tracking parameters into short, elegant links (e.g. ndllink.vercel.app/sale). It makes your links cleaner for social sharing, print materials, SMS campaigns, and provides in-depth click analytics.',
     answerVi:
       'Rút gọn link là công cụ biến đổi các đường dẫn URL dài dòng, phức tạp thành các liên kết ngắn gọn, đẹp mắt và dễ nhớ. Giúp tăng tỷ lệ nhấp chuột (CTR), thuận tiện chia sẻ trên mạng xã hội, tin nhắn SMS, tài liệu in ấn và theo dõi chi tiết hiệu quả chiến dịch.',
   },
