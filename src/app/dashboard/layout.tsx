@@ -24,7 +24,7 @@ const navigation = [
   { name: 'Links', href: '/dashboard/links', icon: Link2 },
   { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
   { name: 'QR Codes', href: '/dashboard/qr', icon: QrCode },
-  { name: 'Free Tools', href: '/tools', icon: Wrench },
+  { name: 'Marketing Tools', href: '/dashboard/tools', icon: Wrench },
   { name: 'Settings', href: '/dashboard/settings', icon: Settings },
 ]
 

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Link2, QrCode, Target, Globe, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
+import NavbarAuth from '@/components/navigation/NavbarAuth'
 
 const tools = [
   {
@@ -78,20 +79,7 @@ export default function ToolsDirectoryPage() {
       <header className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Logo size="sm" />
-          <div className="flex items-center gap-3">
-            <Link
-              href="/login"
-              className="text-xs font-semibold text-slate-700 hover:text-slate-900 px-3 py-2 rounded-lg hover:bg-slate-100 transition"
-            >
-              Sign In
-            </Link>
-            <Link
-              href="/signup"
-              className="text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 px-3.5 py-2 rounded-lg transition shadow-xs"
-            >
-              Get Started Free
-            </Link>
-          </div>
+          <NavbarAuth dashboardText="Back to Dashboard" />
         </div>
       </header>
 

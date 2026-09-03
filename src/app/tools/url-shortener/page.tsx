@@ -3,6 +3,7 @@
 import { useState, useTransition, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '@/components/ui/Logo'
+import NavbarAuth from '@/components/navigation/NavbarAuth'
 import { Link2, Copy, Check, ArrowLeft, Sparkles, Shield, Clock, MousePointer, Lock, Loader2, QrCode, Download } from 'lucide-react'
 import QRCode from 'qrcode'
 
@@ -95,12 +96,7 @@ export default function StandaloneURLShortenerPage() {
             <span className="text-slate-300">/</span>
             <span className="font-bold text-slate-900 text-sm">URL Shortener</span>
           </div>
-          <Link
-            href="/login"
-            className="text-xs font-semibold text-slate-700 hover:text-slate-900 px-3.5 py-2 rounded-lg hover:bg-slate-100 transition"
-          >
-            Dashboard Login
-          </Link>
+          <NavbarAuth loginText="Sign In" dashboardText="Dashboard" />
         </div>
       </header>
 
