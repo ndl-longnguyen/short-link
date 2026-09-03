@@ -14,7 +14,7 @@ function LoginForm() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(searchParams.get('error') || null)
   const [isPending, startTransition] = useTransition()
 
   const handleEmailLogin = (e: React.FormEvent) => {
