@@ -73,6 +73,26 @@ export interface Dictionary {
     buttonCreate: string
     buttonSignIn: string
   }
+  toolsPreview: {
+    badge: string
+    title: string
+    subtitle: string
+    exploreAll: string
+    qrTitle: string
+    qrDesc: string
+    utmTitle: string
+    utmDesc: string
+    shortenerTitle: string
+    shortenerDesc: string
+  }
+  footer: {
+    tagline: string
+    subtagline: string
+    freeTools: string
+    reportAbuse: string
+    login: string
+    register: string
+  }
   dashboardNav: {
     dashboard: string
     links: string

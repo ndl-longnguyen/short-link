@@ -331,17 +331,17 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Complementary Link Utilities
+              {t.toolsPreview.title}
             </h2>
             <p className="text-slate-600 text-sm mt-1">
-              Free web tools to supercharge your marketing campaigns.
+              {t.toolsPreview.subtitle}
             </p>
           </div>
           <Link
             href="/tools"
             className="mt-4 sm:mt-0 text-xs font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1"
           >
-            Explore all tools &rarr;
+            {t.toolsPreview.exploreAll}
           </Link>
         </div>
 
@@ -354,10 +354,10 @@ export default function HomePage() {
               <QrCode className="w-5 h-5" />
             </div>
             <h3 className="font-bold text-slate-900 text-base group-hover:text-purple-600 transition">
-              QR Code Studio
+              {t.toolsPreview.qrTitle}
             </h3>
             <p className="text-slate-600 text-xs mt-1.5 leading-relaxed">
-              Export high-resolution PNG and SVG QR codes with custom color palettes and error recovery.
+              {t.toolsPreview.qrDesc}
             </p>
           </Link>
 
@@ -369,10 +369,10 @@ export default function HomePage() {
               <Target className="w-5 h-5" />
             </div>
             <h3 className="font-bold text-slate-900 text-base group-hover:text-emerald-600 transition">
-              UTM Campaign Builder
+              {t.toolsPreview.utmTitle}
             </h3>
             <p className="text-slate-600 text-xs mt-1.5 leading-relaxed">
-              Structure Google Analytics tags with source, medium, and campaign. 1-click auto shorten.
+              {t.toolsPreview.utmDesc}
             </p>
           </Link>
 
@@ -384,10 +384,10 @@ export default function HomePage() {
               <Link2 className="w-5 h-5" />
             </div>
             <h3 className="font-bold text-slate-900 text-base group-hover:text-blue-600 transition">
-              Standalone Shortener
+              {t.toolsPreview.shortenerTitle}
             </h3>
             <p className="text-slate-600 text-xs mt-1.5 leading-relaxed">
-              Clean distraction-free interface for generating random or custom short links.
+              {t.toolsPreview.shortenerDesc}
             </p>
           </Link>
         </div>
@@ -429,16 +429,16 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2.5 font-bold text-slate-800">
             <Logo size="xs" showText={false} />
-            <span>ShortLink Platform</span>
+            <span>{t.footer.tagline}</span>
             <span>&bull;</span>
-            <span className="font-normal text-slate-400">Production-Ready Vercel + Supabase</span>
+            <span className="font-normal text-slate-400">{t.footer.subtagline}</span>
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="/tools" className="hover:text-slate-900 transition">Free Tools</Link>
-            <Link href="/report" className="hover:text-slate-900 transition">Report Abuse</Link>
-            <Link href="/login" className="hover:text-slate-900 transition">Login</Link>
-            <Link href="/signup" className="hover:text-slate-900 transition">Register</Link>
+            <Link href="/tools" className="hover:text-slate-900 transition">{t.footer.freeTools}</Link>
+            <Link href="/report" className="hover:text-slate-900 transition">{t.footer.reportAbuse}</Link>
+            <Link href="/login" className="hover:text-slate-900 transition">{t.footer.login}</Link>
+            <Link href="/signup" className="hover:text-slate-900 transition">{t.footer.register}</Link>
           </div>
         </div>
       </footer>

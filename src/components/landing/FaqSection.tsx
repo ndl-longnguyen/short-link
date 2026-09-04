@@ -88,11 +88,8 @@ export default function FaqSection() {
       <div className="space-y-3.5">
         {FAQS.map((faq, idx) => {
           const isOpen = openIndex === idx
-          const mainQuestion = isVi ? faq.questionVi : faq.question
-          const subQuestion = isVi ? faq.question : faq.questionVi
-          const mainAnswer = isVi ? faq.answerVi : faq.answer
-          const subAnswer = isVi ? faq.answer : faq.answerVi
-          const subLabel = isVi ? 'English Translation:' : 'Bản dịch Tiếng Việt:'
+          const question = isVi ? faq.questionVi : faq.question
+          const answer = isVi ? faq.answerVi : faq.answer
 
           return (
             <div
@@ -105,14 +102,9 @@ export default function FaqSection() {
                 className="w-full py-4.5 px-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/70 transition"
                 aria-expanded={isOpen}
               >
-                <div className="space-y-1">
-                  <span className="text-sm sm:text-base font-bold text-slate-900 block">
-                    {mainQuestion}
-                  </span>
-                  <span className="text-xs text-indigo-600 font-medium block">
-                    {subQuestion}
-                  </span>
-                </div>
+                <span className="text-sm sm:text-base font-bold text-slate-900 block">
+                  {question}
+                </span>
                 <div
                   className={`p-1.5 rounded-xl bg-slate-100 text-slate-500 transition-transform duration-200 shrink-0 ${
                     isOpen ? 'rotate-180 bg-slate-900 text-white' : ''
@@ -123,12 +115,8 @@ export default function FaqSection() {
               </button>
 
               {isOpen && (
-                <div className="px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 space-y-2.5 animate-in fade-in duration-200">
-                  <p>{mainAnswer}</p>
-                  <p className="p-3 bg-slate-50 rounded-xl text-slate-700 text-xs border border-slate-100">
-                    <strong className="text-slate-900 block mb-1">{subLabel}</strong>
-                    {subAnswer}
-                  </p>
+                <div className="px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 animate-in fade-in duration-200">
+                  <p>{answer}</p>
                 </div>
               )}
             </div>

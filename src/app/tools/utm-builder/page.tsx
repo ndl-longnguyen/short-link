@@ -95,7 +95,7 @@ export default function UTMBuilderPage() {
             <span className="text-slate-300">/</span>
             <span className="font-bold text-slate-900 text-sm">UTM Builder</span>
           </div>
-          <NavbarAuth loginText="Sign In" dashboardText="Dashboard" />
+          <NavbarAuth />
         </div>
       </header>
 

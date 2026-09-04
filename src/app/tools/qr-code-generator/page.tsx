@@ -102,7 +102,7 @@ export default function QRCodeGeneratorPage() {
             <span className="text-slate-300">/</span>
             <span className="font-bold text-slate-900 text-sm">QR Code Studio</span>
           </div>
-          <NavbarAuth loginText="Sign In" dashboardText="Dashboard" />
+          <NavbarAuth />
         </div>
       </header>
 

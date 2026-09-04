@@ -45,12 +45,12 @@ export default function JsonLd({
       availability: 'https://schema.org/InStock',
     },
     featureList: [
-      'Fast URL Shortener / Rút gọn liên kết siêu tốc',
-      'Dynamic QR Code Generator (PNG/SVG) / Tạo mã QR động',
-      'Privacy-safe Click Analytics / Thống kê lượt click',
-      'Password Protected Short Links / Đặt mật khẩu bảo vệ link',
-      'Campaign UTM Builder / Công cụ gắn UTM chiến dịch',
-      'Custom Alias Support / Tùy chỉnh đuôi liên kết',
+      'Fast URL Shortener',
+      'Dynamic QR Code Generator (PNG/SVG)',
+      'Privacy-safe Click Analytics',
+      'Password Protected Short Links',
+      'Campaign UTM Builder',
+      'Custom Alias Support',
     ],
     creator: {
       '@id': `${siteUrl}/#organization`,
@@ -63,42 +63,42 @@ export default function JsonLd({
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'What is a URL Shortener? / Rút gọn link là gì?',
+        name: 'What is a URL Shortener and why should I use it?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A URL shortener converts long, cumbersome web addresses into neat, memorable short links (e.g. ndllink.vercel.app/sale). In Vietnamese: Rút gọn link là công cụ chuyển đổi các đường dẫn dài phức tạp thành các liên kết ngắn gọn, dễ nhớ và thẩm mỹ.',
+          text: 'A URL shortener transforms long, clunky URLs with complex UTM tracking parameters into short, elegant links (e.g. ndllink.vercel.app/sale). It makes your links cleaner for social sharing, print materials, SMS campaigns, and provides in-depth click analytics.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Are short links permanent and free? / Link rút gọn có miễn phí và hoạt động vĩnh viễn không?',
+        name: 'Are short links permanent and 100% free?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes! All links created on ShortLink are 100% free with unlimited redirects unless you intentionally set an expiration date or click quota. Link được tạo hoàn toàn miễn phí và hoạt động vĩnh viễn, trừ khi bạn chủ động cấu hình ngày hết hạn hoặc giới hạn số lượt click.',
+          text: 'Yes! ShortLink provides free, permanent link shortening with unlimited redirects. You can optionally configure an expiration date or click limit quota if you are running a limited-time marketing promotion.',
         },
       },
       {
         '@type': 'Question',
-        name: 'How do dynamic QR codes work? / Mã QR động hoạt động như thế nào?',
+        name: 'How do dynamic QR codes work with short links?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Dynamic QR codes encode your short link URL rather than the raw destination. This means you can update your destination link anytime from your dashboard without having to re-print your physical QR codes. Mã QR mã hóa đường dẫn rút gọn giúp bạn có thể thay đổi link đích bất kỳ lúc nào mà không cần in lại mã QR.',
+          text: 'Every short link you generate automatically creates a dynamic QR code. Because the QR code encodes your short link rather than the raw destination, you can update your destination URL anytime from your dashboard without having to re-print your promotional brochures, menus, or packaging.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Can I protect my short links with a password? / Tôi có thể cài mật khẩu bảo vệ link không?',
+        name: 'Can I protect sensitive links with a password?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. You can add a passcode to any short link during or after creation. Visitors will be prompted with a secure verification page before redirecting. Bạn có thể thiết lập mật khẩu bảo vệ cho bất kỳ liên kết nào để kiểm soát quyền truy cập.',
+          text: 'Yes. You can enable password protection on any link during creation or anytime later. Visitors will be greeted with a modern passcode screen before being redirected to the final destination.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Is ShortLink safe from malware and phishing? / Nền tảng có an toàn không?',
+        name: 'How does ShortLink protect against malware and phishing?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'ShortLink employs automated SSRF guards, private IP address blocking, suspicious protocol filters, and a community abuse reporting system to ensure all redirects remain safe. Nền tảng áp dụng các bộ lọc bảo mật tự động chặn các liên kết độc hại, IP nội bộ và lừa đảo.',
+          text: 'We implement strict Server-Side Request Forgery (SSRF) validation, automatically block private IP addresses (127.0.0.1, 10.x, 192.168.x), filter dangerous schemes (javascript:, data:), and maintain a community abuse reporting system to promptly review flagged links.',
         },
       },
     ],
